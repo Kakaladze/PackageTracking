@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-function parseEvents(events) {
+function parseEventsPolishPost(events) {
     const subEventsList = [];
     for (let i = 0; i < events.length; i++) {
         const tempBody = {
@@ -12,7 +12,6 @@ function parseEvents(events) {
         };
         subEventsList.push(tempBody);
     }
-    console.log(subEventsList);
     return subEventsList;
 }
 function parsePolishPostPackage(data) {
@@ -27,7 +26,7 @@ function parsePolishPostPackage(data) {
         destinationPostOffice: data.urzadPrzezn.nazwa,
         serviceName: data.rodzPrzes,
         active: data.zakonczonoObsluge,
-        events: parseEvents(data.zdarzenia.zdarzenie),
+        events: parseEventsPolishPost(data.zdarzenia.zdarzenie),
     };
     return deliveryPackage;
 }
