@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -10,5 +9,5 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+    console.log(`Server started on port ${port}`);
 });
