@@ -5,6 +5,7 @@ const router = express.Router();
 const { Routes } = require('../common/routes.js');
 const { ErrorMessages } = require('../common/responseMessages');
 const { response400 } = require('../common/responseHelpers.js');
+const parseInpostPackcage = require('../common/supportFunctions.js');
 
 const url = 'api-shipx-pl.easypack24.net';
 router.get(Routes.tracking, (req, res) => {
@@ -22,10 +23,11 @@ router.get(Routes.tracking, (req, res) => {
         if (response.statusCode === 400) {
             return response400(res, ErrorMessages.WRONG_ARGS);
         }
-        console.log(response.statusCode);
         response.setEncoding('utf8');
-        response.on('data', (chunk) => {
-            console.log(`BODY: ${chunk}`);
+        return response.on('data', (chunk) => {
+            const data = JSON.parse(chunk);
+
+            return res.status(200).send({ success: true, package: parseInpostPackcage(data) });
         });
     });
 });
