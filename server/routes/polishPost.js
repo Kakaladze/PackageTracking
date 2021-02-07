@@ -12,7 +12,7 @@ const parsePolishPostPackage = require('../common/supportFunctions.js');
 
 const url = 'https://tt.poczta-polska.pl/Sledzenie/services/Sledzenie?wsdl';
 
-router.get(Routes.test, (req, res) => {
+router.get(Routes.tracking, (req, res) => {
     const { deliveryNumber } = req.query;
     soap.createClient(url, (err, client) => {
         const security = new soap.WSSecurity(PolishPostCredentials.username, PolishPostCredentials.password, {
