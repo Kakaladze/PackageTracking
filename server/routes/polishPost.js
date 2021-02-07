@@ -8,11 +8,11 @@ const { Routes } = require('../common/routes.js');
 const { PolishPostCredentials } = require('../common/credentials.js');
 const { response400 } = require('../common/responseHelpers.js');
 const { ErrorMessages } = require('../common/responseMessages');
-const parsePolishPostPackage = require('../common/supportFunctions.js');
+const parsePolishPostPackage = require('../common/supportSyncFunctions.js');
 
 const url = 'https://tt.poczta-polska.pl/Sledzenie/services/Sledzenie?wsdl';
 
-router.get(Routes.test, (req, res) => {
+router.get(Routes.tracking, (req, res) => {
     const { deliveryNumber } = req.query;
     soap.createClient(url, (err, client) => {
         const security = new soap.WSSecurity(PolishPostCredentials.username, PolishPostCredentials.password, {

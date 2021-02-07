@@ -1,4 +1,3 @@
 module.exports.Routes = {
-    test: '/test',
-
+    tracking: '/tracking',
 };
