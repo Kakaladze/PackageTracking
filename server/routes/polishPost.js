@@ -8,7 +8,7 @@ const { Routes } = require('../common/routes.js');
 const { PolishPostCredentials } = require('../common/credentials.js');
 const { response400 } = require('../common/responseHelpers.js');
 const { ErrorMessages } = require('../common/responseMessages');
-const parsePolishPostPackage = require('../common/supportSyncFunctions.js');
+const parsePolishPostPackage = require('../common/supportPolishPostFunctions.js');
 
 const url = 'https://tt.poczta-polska.pl/Sledzenie/services/Sledzenie?wsdl';
 
