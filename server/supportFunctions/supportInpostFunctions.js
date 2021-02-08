@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
-const { InpostPackageTypes, InpostPackageCheck } = require('./codeVocabs.js');
-const InpostPackageStatuses = require('./codeVocabsFunctional.js');
+const { InpostPackageTypes, InpostPackageCheck } = require('../common/codeVocabs.js');
+const InpostPackageStatuses = require('../common/codeVocabsFunctional.js');
 
 async function parseEventsInpost(events) {
     const subEventsList = [];

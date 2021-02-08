@@ -6,7 +6,7 @@ const { Routes } = require('../common/routes.js');
 const { ErrorMessages } = require('../common/responseMessages');
 const { response400 } = require('../common/responseHelpers.js');
 const { dhlCredentials } = require('../common/APIcredentials.js');
-const parseDhlPackage = require('../common/supportDhlFunctions.js');
+const parseDhlPackage = require('../supportFunctions/supportDhlFunctions.js');
 
 const url = 'api-eu.dhl.com';
 
