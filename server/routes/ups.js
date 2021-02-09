@@ -22,10 +22,11 @@ router.get(Routes.tracking, async (req, res) => {
             if (request.resourceType() === 'image') request.abort();
             else request.continue();
         });
-        page.setDefaultNavigationTimeout(5000);
+        page.setDefaultNavigationTimeout(10000);
         page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0');
         try { await page.goto(options.url); } catch (e) { return response400(res, ErrorMessages.NOT_FOUND); }
         try { await page.waitForSelector('.privacy_prompt_content > .option_set > .option_explicit:nth-child(1) > .radio-button > .radio-button__control'); } catch (e) { return response400(res, ErrorMessages.NOT_FOUND); }
+        await page.click('.privacy_prompt_content > .option_set > .option_explicit:nth-child(1) > .radio-button > .radio-button__control');
         try { await navigationPromise; } catch (e) { return response400(res, ErrorMessages.NOT_FOUND); }
         try { await page.waitForSelector('.privacy_prompt_content > .option_set > .option_explicit:nth-child(1) > .radio-button > label'); } catch (e) { return response400(res, ErrorMessages.NOT_FOUND); }
         try { await page.click('.privacy_prompt_content > .option_set > .option_explicit:nth-child(1) > .radio-button > label'); } catch (e) { return response400(res, ErrorMessages.NOT_FOUND); }
