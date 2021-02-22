@@ -9,6 +9,7 @@ dist/
 webScrapCode/
 APIcredentials.js
 DBcredentials.js
+package-lock.json
 # compass to monitor MongoDB
 compass/
 package-lock.json
